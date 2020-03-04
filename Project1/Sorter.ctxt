@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Sorter
+comment0.text=\n\ Common\ sorter\ interface\ to\ be\ implemented\ by\ \n\ specific\ sorter\ classes\n\ @author\ Evan\ Vu\n
+comment1.params=myArray
+comment1.target=void\ sortArray(java.lang.Comparable[])
+comment1.text=\n\ Method\ sort\ that\ all\ sorters\ will\ have\n
+numComments=2
