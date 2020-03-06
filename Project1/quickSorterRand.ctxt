@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=quickSorterRand
+comment0.text=\n\ Write\ a\ description\ of\ class\ quickSorter\ here.\n\n\ @author\ (your\ name)\n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=array\ a\ b
+comment1.target=void\ swap(java.lang.Comparable[],\ int,\ int)
+comment2.params=a
+comment2.target=void\ sortArray(java.lang.Comparable[])
+comment3.params=a\ fst\ lst
+comment3.target=int\ partition(java.lang.Comparable[],\ int,\ int)
+comment4.params=a\ fst\ lst
+comment4.target=void\ qSort(java.lang.Comparable[],\ int,\ int)
+numComments=5

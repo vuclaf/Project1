@@ -9,6 +9,6 @@ public interface Sorter<E>
     /**
      * Method sort that all sorters will have
      */
-    public <E extends Comparable<E>> void sortArray(E myArray[]);
+    public abstract <E extends Comparable<E>> void sortArray(E myArray[]);
     
 }
