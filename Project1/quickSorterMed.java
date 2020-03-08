@@ -18,7 +18,8 @@ public class quickSorterMed<E> implements Sorter<E>
     }
     
     private <E extends Comparable<E>>int partition(E[] a, int fst, int lst) {
-        E pivot = a[(fst+lst)/2];
+        swap(a,(fst+lst)/2,fst);
+        E pivot = a[fst];
         int u = fst;
         int d = lst;
         do {
@@ -27,7 +28,7 @@ public class quickSorterMed<E> implements Sorter<E>
             if (u < d) swap(a, u, d);
         } 
         while (u < d);
-        swap(a, fst, d);
+        swap(a, fst , d);
         return d;
     }
     

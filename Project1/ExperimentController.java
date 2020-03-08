@@ -27,11 +27,17 @@ public class ExperimentController{
     }
     
     public void dataOut(Integer[] testInput){
+        selectionSort<Integer> ss = new selectionSort<Integer>();
+        bubbleSort<Integer> bb = new bubbleSort<Integer>();
+        insertionSort<Integer> is = new insertionSort<Integer>();
+        mergeSorter<Integer> ms = new mergeSorter<Integer>();
+        quickSorterFirst<Integer> qsf = new quickSorterFirst<Integer>();
         quickSorterRand<Integer> qsr = new quickSorterRand<Integer>();
+        quickSorterMed<Integer> qsm = new quickSorterMed<Integer>();
         qsr.sortArray(testInput);
         PrintWriter writer =null;
         try{
-            writer = new PrintWriter(new File("output.txt"));
+            writer = new PrintWriter(new File("output" +System.nanoTime() +".txt"));
             for(int element:testInput){
                 writer.println(element);
             }
