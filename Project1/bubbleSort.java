@@ -22,7 +22,7 @@ public class bubbleSort <E> implements Sorter <E>
      * @param  y  a sample parameter for a method
      * @return    the sum of x and y
      */
-    public void sortArray(E [] a)
+    public <E extends Comparable<E>> void sortArray(E [] a)
     {
         int pass = 1;
         boolean exchanges;

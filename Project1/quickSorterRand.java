@@ -19,7 +19,9 @@ public class quickSorterRand<E> implements Sorter<E>
     
     private static <E extends Comparable<E>>int partition(E[] a, int fst, int lst) {
         Random rand = new Random(System.nanoTime());
-        E pivot = a[rand.nextInt(lst-fst)+fst];
+        int ranInt = rand.nextInt(lst-fst)+fst;
+        swap(a,ranInt,fst);
+        E pivot = a[fst];
         int u = fst;
         int d = lst;
         do {
