@@ -47,4 +47,21 @@ public class ExperimentController{
             System.out.println("Exception ocurred: " + e);
         }
     }
+    
+    public void randIn(Integer[] testInput){
+        Random rand = new Random(System.currentTimeMillis());
+        for (Integer i:testInput){
+            i=rand.nextInt();
+        }
+    }
+    
+    public Integer[] arrayCreator(int size){
+        Integer[] created = new Integer[size];
+        this.randIn(created);
+        return created;
+    }
+    
+    public long timeExecuted(Integer[] testInput){
+        
+    }
 }
