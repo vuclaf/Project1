@@ -11,9 +11,19 @@ public class ExperimentController{
     
     public static void main(String[] args) throws Exception{
         ExperimentController exp = new ExperimentController();
-        Integer[] input = new Integer[1000];
-        exp.dataIn(input);
-        exp.dataOut(input);
+        PrintWriter writer =null;
+        try{
+            writer = new PrintWriter(new File("output.txt"));
+            for(int i=1000;i<5000;i+=100){
+                Integer[] newArray = new Integer[i];
+                System.arraycopy(exp.randArrayCreator(i), 0, newArray, 0, i);
+                writer.println(exp.timeExecuted(newArray));
+            }
+            writer.close();
+        }
+        catch(Exception e){
+            System.out.println("Exception ocurred: " + e);
+        }        
     }
     
     public void dataIn(Integer[] testInput) throws Exception{
@@ -26,42 +36,21 @@ public class ExperimentController{
         }
     }
     
-    public void dataOut(Integer[] testInput){
-        selectionSort<Integer> ss = new selectionSort<Integer>();
-        bubbleSort<Integer> bb = new bubbleSort<Integer>();
-        insertionSort<Integer> is = new insertionSort<Integer>();
-        mergeSorter<Integer> ms = new mergeSorter<Integer>();
-        quickSorterFirst<Integer> qsf = new quickSorterFirst<Integer>();
-        quickSorterRand<Integer> qsr = new quickSorterRand<Integer>();
-        quickSorterMed<Integer> qsm = new quickSorterMed<Integer>();
-        qsr.sortArray(testInput);
-        PrintWriter writer =null;
-        try{
-            writer = new PrintWriter(new File("output" +System.nanoTime() +".txt"));
-            for(int element:testInput){
-                writer.println(element);
-            }
-            writer.close();
-        }
-        catch(Exception e){
-            System.out.println("Exception ocurred: " + e);
-        }
-    }
-    
-    public void randIn(Integer[] testInput){
-        Random rand = new Random(System.currentTimeMillis());
-        for (Integer i:testInput){
-            i=rand.nextInt();
-        }
-    }
-    
-    public Integer[] arrayCreator(int size){
+    public Integer[] randArrayCreator(int size){
+        Random rand = new Random(System.nanoTime());
         Integer[] created = new Integer[size];
-        this.randIn(created);
+        for (int i=0; i<size; i++){
+            created[i]=(Integer)rand.nextInt();
+        }
         return created;
     }
     
     public long timeExecuted(Integer[] testInput){
-        
+        quickSorterRand<Integer> qsr = new quickSorterRand<Integer>();
+        long startTime = System.currentTimeMillis();
+        qsr.sortArray(testInput);
+        long endTime = System.currentTimeMillis();
+        return endTime - startTime;
     }
+    
 }
