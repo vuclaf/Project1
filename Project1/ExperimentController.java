@@ -46,10 +46,20 @@ public class ExperimentController{
     }
     
     public long timeExecuted(Integer[] testInput){
-        quickSorterRand<Integer> qsr = new quickSorterRand<Integer>();
-        long startTime = System.currentTimeMillis();
-        qsr.sortArray(testInput);
-        long endTime = System.currentTimeMillis();
+         // quickSorterRand<Integer> qsr = new quickSorterRand<Integer>();
+          quickSorterFirst<Integer> qsf = new quickSorterFirst<Integer>();
+         // quickSorterMed<Integer> qsm = new quickSorterMed<Integer>();
+         // insertionSort<Integer> is = insertionSort<Integer>();
+         // bubbleSort<Integer> bs = bubbleSort<Intgeger>();
+         // mergeSorter<Integer> ms = mergeSorter<Integer>();
+         // selectionSort<Integer> ss = selectionSort<Integer>();
+        
+        long startTime = System.nanoTime();
+        qsf.sortArray(testInput);
+        for(Integer i:testInput){
+            i+=i;
+        }
+        long endTime = System.nanoTime();
         return endTime - startTime;
     }
     
