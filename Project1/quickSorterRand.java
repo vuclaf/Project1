@@ -20,6 +20,7 @@ public class quickSorterRand<E> implements Sorter<E>
     private static <E extends Comparable<E>>int partition(E[] a, int fst, int lst) {
         Random rand = new Random(System.nanoTime());
         int ranInt = rand.nextInt(lst-fst)+fst;
+        //Swap a random value to the first position and then select that as the pivot
         swap(a,ranInt,fst);
         E pivot = a[fst];
         int u = fst;
